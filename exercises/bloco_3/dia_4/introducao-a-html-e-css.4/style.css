@@ -29,15 +29,15 @@ nav a:hover {
   background-color: rgb(50, 76, 221);
 }
 
-main h2 {
+.facts h2 {
   font-family: "Roboto", sans-serif;
   margin-top: 4%;
   margin-left: 2%;
 }
-main {
+/* prettier-ignore  */
+main, article {
   margin-left: 20px;
 }
-
 /* prettier-ignore  */
 table, th, td, tr {
   font-family: "Montserrat", sans-serif;
@@ -48,7 +48,11 @@ table, th, td, tr {
   font-size: 1.3em;
 }
 
-.article-info {
+aside {
+  width: 30%;
+  float: right;
+}
+.info {
   font-family: "Montserrat", sans-serif;
   display: inline-block;
   width: 60%;
@@ -56,12 +60,22 @@ table, th, td, tr {
   padding: 20px;
   background-color: rgb(199, 199, 199);
 }
-aside {
-  width: 30%;
-  float: right;
+
+.article-info,
+.facts {
+  font-family: "Montserrat", sans-serif;
+  display: inline-block;
+  width: 60%;
+  height: auto;
+  padding: 20px;
+  background-color: rgb(199, 199, 199);
 }
+
 img {
   width: 300px;
   border: 1px solid black;
   padding: 2px;
+}
+.facts {
+  width: 100%;
 }
