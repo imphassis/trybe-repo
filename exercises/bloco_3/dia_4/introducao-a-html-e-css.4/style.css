@@ -1,8 +1,37 @@
-/* prettier-ignore */
-
+body {
+  margin: 0%;
+  margin: 20px;
+}
+.nav-item {
+  display: inline-block;
+}
+/* prettier-ignore  */
 table, th, td, tr {
   text-align: center;
   border: 1px solid black;
   border-collapse: collapse;
   width: 30%;
+}
+
+.article-info {
+  display: inline-block;
+  width: 60%;
+  height: auto;
+  padding: 5px;
+  border: 1px solid blue;
+  background-color: yellow;
+}
+.main-article {
+  width: 500px;
+  height: 20%;
+}
+
+aside {
+  width: 30%;
+  float: right;
+}
+img {
+  width: 300px;
+  border: 1px solid black;
+  padding: 2px;
 }
