@@ -1,0 +1,8 @@
+/* prettier-ignore */
+
+table, th, td, tr {
+  text-align: center;
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 30%;
+}
