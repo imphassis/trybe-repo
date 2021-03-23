@@ -52,10 +52,12 @@ nav a:hover {
   background-color: rgb(221, 219, 219);
 }
 aside {
+  margin-top: 500px;
   padding: 10px;
   font-family: "Montserrat", sans-serif;
   background-color: rgb(221, 219, 219);
-  width: 25%;
+  width: 40%;
+  height: auto;
   float: right;
   text-align: center;
 
@@ -69,17 +71,19 @@ aside p {
 }
 
 table {
+  margin-left: 33%;
+  width: 35%;
   font-size: 1.3em;
   display: block;
-  height: 80%;
   border: 1px solid black;
-  border-collapse: separate;
+  border-collapse: initial;
+  text-align: center;
   border-spacing: auto;
 }
 
 main {
   padding: 20px;
-  width: 80%;
+  width: 65%;
 }
 .article-info {
   border: solid 0.5px;
@@ -89,7 +93,7 @@ main {
   display: inline-block;
   width: 80%;
   padding: 20px;
-  background-color: rgb(49, 163, 74);
+  background-color: rgb(221, 219, 219);
 }
 
 img {
