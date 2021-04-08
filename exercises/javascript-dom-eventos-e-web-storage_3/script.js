@@ -121,11 +121,10 @@ function btns() {
 }
 btns();
 
-const daysList = document.querySelectorAll('.day');
-
 function transitionDays() {
+  const daysList = document.querySelectorAll('.day');
   for (let i = 0; i < daysList.length; i += 1) {
-    daysList[i].style.transition = 'all 0.5s';
+    // daysList[i].style.transition = 'all 0.5s';
     daysList[i].addEventListener('mouseenter', (event) => {
       event.target.style.transform = 'scale(1.5)';
     });
@@ -141,19 +140,94 @@ const inputContainer = document.querySelector('.input-container');
 const btnAdd = document.querySelector('#btn-add');
 const taskInput = document.querySelector('#task-input');
 
-btnAdd.addEventListener('click', () => {
-  const btn = document.createElement('span');
-  btn.innerText = `${taskInput.value} `;
-  myTasks.appendChild(btn);
-});
-btnAdd.addEventListener('click', () => {
-  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-  const btn = document.createElement('div');
-  btn.style.backgroundColor = `#${randomColor}`;
+// Exercício 8
 
-  btn.addEventListener('click', (event) => {
-    event.target.classList.add('task-selected');
+function addTask(x) {
+  const el = document.createElement('span');
+  el.innerText = x;
+  myTasks.appendChild(el);
+}
+addTask('Cozinhar');
+
+function addLabel(color) {
+  const el = document.createElement('div');
+  el.style.backgroundColor = color;
+  myTasks.appendChild(el);
+}
+addLabel('green');
+
+// Exercício 9
+const taskCircle = document.querySelector('.my-tasks div');
+function taskSelection() {
+  taskCircle.classList.add('tasks');
+  taskCircle.addEventListener('click', () => {
+    if (taskCircle.classList.contains('task-selected')) {
+      taskCircle.classList.remove('task-selected');
+    } else {
+      taskCircle.classList.add('task-selected');
+    }
   });
+}
+taskSelection();
 
-  myTasks.appendChild(btn);
+// Exercício 10
+
+const dayTask = document.querySelector('#days');
+
+dayTask.addEventListener('click', (event) => {
+  const currentColor = taskCircle.style.backgroundColor;
+  // if (taskCircle.classList.contains('task-selected')) {
+  //   if (event.target.style.color === currentColor) {
+  //     event.target.style.color = null;
+  //   } else {
+  //     event.target.style.color = currentColor;
+  //   }
+  // }
+
+  if (taskCircle.classList.contains('task-selected') === false) {
+    return;
+  }
+  if (event.target.style.color === currentColor) {
+    event.target.style.color = null;
+  } else {
+    event.target.style.color = currentColor;
+  }
 });
+
+function addAppointment() {
+  const taskList = document.querySelector('.task-list');
+  const el = document.createElement('li');
+  el.innerText = taskInput.value;
+  taskList.appendChild(el);
+  if (el.innerText === '') {
+    alert('ERRO');
+  }
+  taskInput.value = '';
+  taskInput.focus();
+}
+
+btnAdd.addEventListener('click', addAppointment);
+
+taskInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    addAppointment();
+  }
+});
+
+//  btnAdd.addEventListener('click', () => {
+//   const btn = document.createElement('span');
+//   btn.innerText = `${taskInput.value} `;
+//   myTasks.appendChild(btn);
+// });
+
+// btnAdd.addEventListener('click', () => {
+//   const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+//   const btn = document.createElement('div');
+//   btn.style.backgroundColor = `#${randomColor}`;
+
+//   btn.addEventListener('click', (event) => {
+//     event.target.classList.add('task-selected');
+//   });
+
+//   myTasks.appendChild(btn);
+// });
