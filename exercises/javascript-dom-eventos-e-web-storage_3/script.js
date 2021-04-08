@@ -69,8 +69,8 @@ function daysOnCalendar() {
     allDays.appendChild(liElement);
   }
 }
-
 daysOnCalendar();
+
 // Criando botão de Feriado
 function holidaysButton() {
   x = document.createElement('button');
@@ -78,8 +78,8 @@ function holidaysButton() {
   x.setAttribute('id', 'btn-holiday');
   document.querySelector('.buttons-container').appendChild(x);
 }
-
 holidaysButton();
+
 // Criando botão de Sexta-Feira
 function fridayButton() {
   x = document.createElement('button');
@@ -87,46 +87,47 @@ function fridayButton() {
   x.setAttribute('id', 'btn-friday');
   document.querySelector('.buttons-container').appendChild(x);
 }
-
 fridayButton();
-// Atribuindo aos botões 'feriado' e 'sexta-feira' ações
-function holidayColor() {
-  x = document.getElementsByClassName('holiday');
-  for (let i = 0; i < x.length; i += 1) {
-    if (x[i].style.backgroundColor === 'lightblue') {
-      x[i].style.backgroundColor = null;
-    } else {
-      x[i].style.backgroundColor = 'lightblue';
-    }
-  }
-}
 
-function fridayColor() {
-  const x = document.getElementsByClassName('friday');
-  const list = [4, 11, 18, 25];
-  for (let i = 0; i < x.length; i += 1) {
-    if (x[i].innerText === `SEXTOU`) {
-      x[i].innerText = list[i];
-    } else {
-      x[i].innerText = `SEXTOU`;
-    }
-  }
-}
-
+// Criando EventListener para os botões (sexta-feira e feriado)
 function btns() {
   const btnHoliday = document.getElementById('btn-holiday');
   const btnFriday = document.getElementById('btn-friday');
-  btnHoliday.addEventListener('click', holidayColor);
-  btnFriday.addEventListener('click', fridayColor);
+
+  btnHoliday.addEventListener('click', () => {
+    x = document.getElementsByClassName('holiday');
+    for (let i = 0; i < x.length; i += 1) {
+      if (x[i].style.backgroundColor === 'lightblue') {
+        x[i].style.backgroundColor = null;
+      } else {
+        x[i].style.backgroundColor = 'lightblue';
+      }
+    }
+  });
+  btnFriday.addEventListener('click', () => {
+    const x = document.getElementsByClassName('friday');
+    const list = [4, 11, 18, 25];
+    for (let i = 0; i < x.length; i += 1) {
+      if (x[i].innerText === `SEXTOU`) {
+        x[i].innerText = list[i];
+      } else {
+        x[i].innerText = `SEXTOU`;
+      }
+    }
+  });
 }
 btns();
 
 function transitionDays() {
+  // Definindo daysList como nodeList de todos os dias do calendário
   const daysList = document.querySelectorAll('.day');
+  // Iterando sobre cada item da array de daysList:
   for (let i = 0; i < daysList.length; i += 1) {
-    // daysList[i].style.transition = 'all 0.5s';
+    // Para cada item da lista, se o evento ocorrer (se o gatilho for acionado),
+    // ele responderá da seguinte forma:
+    daysList[i].style.transition = 'all 0.5s';
     daysList[i].addEventListener('mouseenter', (event) => {
-      event.target.style.transform = 'scale(1.5)';
+      event.target.style.transform = 'scale(1.8)';
     });
     daysList[i].addEventListener('mouseout', (event) => {
       event.target.style.transform = 'scale(1.0)';
@@ -213,21 +214,3 @@ taskInput.addEventListener('keydown', (event) => {
     addAppointment();
   }
 });
-
-//  btnAdd.addEventListener('click', () => {
-//   const btn = document.createElement('span');
-//   btn.innerText = `${taskInput.value} `;
-//   myTasks.appendChild(btn);
-// });
-
-// btnAdd.addEventListener('click', () => {
-//   const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-//   const btn = document.createElement('div');
-//   btn.style.backgroundColor = `#${randomColor}`;
-
-//   btn.addEventListener('click', (event) => {
-//     event.target.classList.add('task-selected');
-//   });
-
-//   myTasks.appendChild(btn);
-// });
