@@ -4,13 +4,21 @@ const textBox = document.querySelector('.textBox');
 console.log(localStorage);
 
 (function localStorageSettings() {
-  if (localStorage.length !== 5) {
-    localStorage.bgColor = 'white';
+  if (localStorage.length === 0) {
+    localStorage.bgColor = 'null';
     localStorage.txtColor = 'black';
-    localStorage.fontSize = '1em';
-    localStorage.lineSpacing = '1em';
-    localStorage.fontFamily = 'Courier New';
+    localStorage.fSize = '1em';
+    localStorage.lSpacing = '1em';
+    localStorage.ftFamily = 'Courier New';
   }
+})();
+
+(function defineSettingsLocalStorage() {
+  textBox.style.backgroundColor = localStorage.bgColor;
+  textBox.style.color = localStorage.txtColor;
+  textBox.style.fontSize = localStorage.fSize;
+  textBox.style.lineSpacing = localStorage.lSpacing;
+  textBox.style.fontFamily = localStorage.ftFamily;
 })();
 
 (function CoresBackground() {
@@ -35,26 +43,28 @@ console.log(localStorage);
     document.querySelector('#div-bgColor').appendChild(pallet);
   })();
 
-  // Criando gatilho para botão "Cor de fundo da tela" mostrar paleta de cores do Background:
-
-  const bgColorButton = document.getElementById('btn-bgColor');
-  bgColorButton.addEventListener('click', () => {
+  // Criando gatilho para paleta de cores:
+  (function backgroundTrigger() {
+    const bgColorButton = document.getElementById('btn-bgColor');
+    bgColorButton.addEventListener('click', () => {
+      const bgPallet = document.getElementById('bg-pallet');
+      if (bgPallet.getAttribute('hidden') === 'true') {
+        bgPallet.removeAttribute('hidden');
+      } else {
+        bgPallet.setAttribute('hidden', 'true');
+      }
+    });
     const bgPallet = document.getElementById('bg-pallet');
-    if (bgPallet.getAttribute('hidden') === 'true') {
-      bgPallet.removeAttribute('hidden');
-    } else {
-      bgPallet.setAttribute('hidden', 'true');
-    }
-  });
-  const bgPallet = document.getElementById('bg-pallet');
-  bgPallet.addEventListener('input', (event) => {
-    textBox.style.backgroundColor = event.target.value;
-  });
+    bgPallet.addEventListener('input', (event) => {
+      localStorage.bgColor = event.target.value;
+      textBox.style.backgroundColor = localStorage.bgColor;
+    });
+  })();
 })();
 
 (function CoresTexto() {
   // Adicionando botão que mostra paleta de cores para texto:
-  function textColorButton() {
+  (function textColorButton() {
     const button = document.createElement('button');
     const div = document.createElement('div');
     div.setAttribute('id', 'div-textColor');
@@ -62,45 +72,64 @@ console.log(localStorage);
     button.innerText = 'Cor do texto';
     button.setAttribute('id', 'btn-textColor');
     document.querySelector('#div-textColor').appendChild(button);
-  }
-  textColorButton();
+  })();
 
   // Criando paleta de cores para texto:
-  function createTxtPallet() {
+  (function createTxtPallet() {
     const pallet = document.createElement('input');
     pallet.setAttribute('id', 'txt-pallet');
     pallet.setAttribute('type', 'color');
     pallet.setAttribute('value', '#ff0000');
     pallet.setAttribute('hidden', 'true');
     document.querySelector('#div-textColor').appendChild(pallet);
-  }
-  createTxtPallet();
+  })();
 
   // Criando gatilho para botão "Cor do Texto" mostrar paleta de cores do texto:
-  const txtColorButton = document.getElementById('btn-textColor');
-  txtColorButton.addEventListener('click', () => {
+  (function txtColorTrigger() {
+    const txtColorButton = document.getElementById('btn-textColor');
+    txtColorButton.addEventListener('click', () => {
+      const txtPallet = document.getElementById('txt-pallet');
+      if (txtPallet.getAttribute('hidden') === 'true') {
+        txtPallet.removeAttribute('hidden');
+      } else {
+        txtPallet.setAttribute('hidden', 'true');
+      }
+    });
     const txtPallet = document.getElementById('txt-pallet');
-    if (txtPallet.getAttribute('hidden') === 'true') {
-      txtPallet.removeAttribute('hidden');
-    } else {
-      txtPallet.setAttribute('hidden', 'true');
-    }
-  });
-  const txtPallet = document.getElementById('txt-pallet');
-  txtPallet.addEventListener('input', (event) => {
-    textBox.style.color = event.target.value;
-  });
+    txtPallet.addEventListener('input', (event) => {
+      localStorage.txtColor = event.target.value;
+      textBox.style.color = localStorage.txtColor;
+    });
+  })();
 })();
 
 (function TamanhoFonte() {
   // Adicionando botão que mostra seletor de tamanhos de texto:
-  function fontSizeButton() {
-    const x = document.createElement('button');
-    x.innerText = 'Tamanho da fonte';
-    x.setAttribute('id', 'btn-fontSize');
-    document.querySelector('.buttons').appendChild(x);
-  }
-  fontSizeButton();
+  (function fontSizeButton() {
+    const button = document.createElement('button');
+    button.innerText = 'Tamanho da fonte';
+    button.setAttribute('id', 'btn-fontSize');
+    document.querySelector('.buttons').appendChild(button);
+  })();
+  // Adicionando botões de seletores de tamanho:
+  (function sizeSelector() {
+    (function createPlus() {
+      const buttonPlus = document.createElement('button');
+      buttonPlus.innerText = '+';
+      buttonPlus.setAttribute('id', 'btnSelector+');
+      buttonPlus.setAttribute('hidden', 'true');
+      document.querySelector('.buttons').appendChild(buttonPlus);
+    })();
+
+    const buttonLess = document.createElement('button');
+
+    buttonLess.innerText = '-';
+
+    buttonLess.setAttribute('hidden', 'true');
+    buttonLess.setAttribute('id', 'btnSelector-');
+
+    document.querySelector('.buttons').appendChild(buttonLess);
+  })();
 })();
 
 (function EspacamentoTexto() {
