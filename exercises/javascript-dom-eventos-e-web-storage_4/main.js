@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 const textBox = document.querySelector('.textBox');
-
-console.log(localStorage);
+const sizeButton = document.getElementById('btn-fontSize');
 
 (function localStorageSettings() {
   if (localStorage.length === 0) {
@@ -24,13 +23,10 @@ console.log(localStorage);
 (function CoresBackground() {
   // Criando botão "Cor de Fundo da Tela"
   (function backgroundColorButton() {
-    const x = document.createElement('button');
-    const div = document.createElement('div');
-    div.setAttribute('id', 'div-bgColor');
-    document.querySelector('.buttons').appendChild(div);
-    x.innerText = 'Cor de fundo da tela';
-    x.setAttribute('id', 'btn-bgColor');
-    document.querySelector('#div-bgColor').appendChild(x);
+    const button = document.createElement('button');
+    button.innerText = 'Cor de fundo da tela';
+    button.setAttribute('id', 'btn-bgColor');
+    document.querySelector('#div-bgColor').appendChild(button);
   })();
 
   // Criando paleta de cores para o Background:
@@ -66,9 +62,6 @@ console.log(localStorage);
   // Adicionando botão que mostra paleta de cores para texto:
   (function textColorButton() {
     const button = document.createElement('button');
-    const div = document.createElement('div');
-    div.setAttribute('id', 'div-textColor');
-    document.querySelector('.buttons').appendChild(div);
     button.innerText = 'Cor do texto';
     button.setAttribute('id', 'btn-textColor');
     document.querySelector('#div-textColor').appendChild(button);
@@ -104,32 +97,26 @@ console.log(localStorage);
 })();
 
 (function TamanhoFonte() {
-  // Adicionando botão que mostra seletor de tamanhos de texto:
-  (function fontSizeButton() {
-    const button = document.createElement('button');
-    button.innerText = 'Tamanho da fonte';
-    button.setAttribute('id', 'btn-fontSize');
-    document.querySelector('.buttons').appendChild(button);
-  })();
-  // Adicionando botões de seletores de tamanho:
-  (function sizeSelector() {
-    (function createPlus() {
-      const buttonPlus = document.createElement('button');
-      buttonPlus.innerText = '+';
-      buttonPlus.setAttribute('id', 'btnSelector+');
-      buttonPlus.setAttribute('hidden', 'true');
-      document.querySelector('.buttons').appendChild(buttonPlus);
-    })();
+  // Comando para mostrar botões "+" e "-"
 
-    const buttonLess = document.createElement('button');
-
-    buttonLess.innerText = '-';
-
-    buttonLess.setAttribute('hidden', 'true');
-    buttonLess.setAttribute('id', 'btnSelector-');
-
-    document.querySelector('.buttons').appendChild(buttonLess);
-  })();
+  // Show LessButton
+  sizeButton.addEventListener('click', () => {
+    const sizePlus = document.getElementById('btnSelectorPlus');
+    if (sizePlus.getAttribute('hidden') === 'true') {
+      sizePlus.removeAttribute('hidden');
+    } else {
+      sizePlus.setAttribute('hidden', 'true');
+    }
+  });
+  // Show PlusButton
+  sizeButton.addEventListener('click', () => {
+    const sizeLess = document.getElementById('btnSelectorLess');
+    if (sizeLess.getAttribute('hidden') === 'true') {
+      sizeLess.removeAttribute('hidden');
+    } else {
+      sizeLess.setAttribute('hidden', 'true');
+    }
+  });
 })();
 
 (function EspacamentoTexto() {
