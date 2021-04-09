@@ -1,38 +1,111 @@
 /* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-const divUm = document.getElementById('divUm');
-const divDois = document.getElementById('divDois');
-const divTres = document.getElementById('divTres');
-const input = document.getElementById('input');
-const myWebpage = document.getElementById('mySpotrybefy');
-
-/*
-1. Copie esse arquivo e edite apenas ele;
-
-2. Crie uma função que adicione a classe 'tech' ao elemento selecionado;
-2.1. Deve existir apenas um elemento com a classe 'tech'. Como você faz isso?
-
-3. Crie uma função que, ao digitar na caixa de texto, altere o texto do elemento
-com a classe 'tech';
-
-4. Crie uma função que, ao clicar duas vezes em 'Meu top 3 do Spotrybefy', ele
-redirecione para alguma página;
-4.1. Que tal redirecionar para seu portifólio?
-
-5. Crie uma função que, ao passar o mouse sobre 'Meu top 3 do Spotrybefy', altere
-a cor do mesmo;
-
-Segue abaixo um exemplo do uso de event.target:
-*/
-
-function resetText(event) {
-  // O Event é passado como um parâmetro para a função.
-  event.target.innerText = 'Opção reiniciada';
-  // O event possui várias propriedades, porém a mais usada é o event.target,
-  // que retorna o objeto que disparou o evento.
+const textBox = document.querySelector('.textBox');
+// Criando botão que mostra paleta de Cores para o Background:
+function backgroundColorButton() {
+  const x = document.createElement('button');
+  const div = document.createElement('div');
+  div.setAttribute('id', 'div-bgColor');
+  document.querySelector('.buttons').appendChild(div);
+  x.innerText = 'Cor de fundo da tela';
+  x.setAttribute('id', 'btn-bgColor');
+  document.querySelector('#div-bgColor').appendChild(x);
 }
+backgroundColorButton();
 
-divUm.addEventListener('dblclick', resetText);
-// Não precisa passar o parâmetro dentro do addEventListener. O próprio
-// navegador fará esse trabalho por você, não é legal? Desse jeito, o
-// event.target na nossa função retornará o objeto 'divUm'.
+// Criando paleta de cores para o Background:
+function createBgPallet() {
+  const pallet = document.createElement('input');
+  pallet.setAttribute('id', 'bg-pallet');
+  pallet.setAttribute('type', 'color');
+  pallet.setAttribute('value', '#ff0000');
+  pallet.setAttribute('hidden', 'true');
+  document.querySelector('#div-bgColor').appendChild(pallet);
+}
+createBgPallet();
+
+// Adicionando botão que mostra paleta de cores para texto:
+function textColorButton() {
+  const x = document.createElement('button');
+  const div = document.createElement('div');
+  div.setAttribute('id', 'div-textColor');
+  document.querySelector('.buttons').appendChild(div);
+  x.innerText = 'Cor do texto';
+  x.setAttribute('id', 'btn-textColor');
+  document.querySelector('#div-textColor').appendChild(x);
+}
+textColorButton();
+
+// Criando paleta de cores para texto:
+function createTxtPallet() {
+  const pallet = document.createElement('input');
+  pallet.setAttribute('id', 'txt-pallet');
+  pallet.setAttribute('type', 'color');
+  pallet.setAttribute('value', '#ff0000');
+  pallet.setAttribute('hidden', 'true');
+  document.querySelector('#div-textColor').appendChild(pallet);
+}
+createTxtPallet();
+
+// Criando gatilho para botão "Cor do Texto" mostrar paleta de cores
+const txtColorButton = document.getElementById('btn-textColor');
+txtColorButton.addEventListener('click', () => {
+  const txtPallet = document.getElementById('txt-pallet');
+  if (txtPallet.getAttribute('hidden') === 'true') {
+    txtPallet.removeAttribute('hidden');
+  } else {
+    txtPallet.setAttribute('hidden', 'true');
+  }
+});
+const txtPallet = document.getElementById('txt-pallet');
+txtPallet.addEventListener('input', (event) => {
+  textBox.style.color = event.target.value;
+});
+
+// Adicionando botão que mostra seletor de tamanhos de texto:
+function fontSizeButton() {
+  const x = document.createElement('button');
+  x.innerText = 'Tamanho da fonte';
+  x.setAttribute('id', 'btn-fontSize');
+  document.querySelector('.buttons').appendChild(x);
+}
+fontSizeButton();
+
+// Adicionando botão que mostra seletor de espaçamento de texto:
+function lineSpacingButton() {
+  const x = document.createElement('button');
+  x.innerText = 'Espaçamento';
+  x.setAttribute('id', 'btn-lineSpacing');
+  document.querySelector('.buttons').appendChild(x);
+}
+lineSpacingButton();
+
+// Adicionando botão que mostra seletor de fonte de texto:
+function fontFamilyButton() {
+  const x = document.createElement('button');
+  x.innerText = 'Tipo da Fonte';
+  x.setAttribute('id', 'btn-fontType');
+  document.querySelector('.buttons').appendChild(x);
+}
+fontFamilyButton();
+
+const bgButton = document.getElementById('btn-bgColor');
+
+bgButton.addEventListener('click', () => {
+  const bgPallet = document.getElementById('bg-pallet');
+  const submitButton = document.getElementById('bgColor-submit-button');
+  if (bgPallet && submitButton) {
+    bgPallet.remove();
+    submitButton.remove();
+  } else {
+    const pallet = document.createElement('input');
+    const button = document.createElement('input');
+    pallet.setAttribute('type', 'color');
+    pallet.setAttribute('id', 'bg-pallet');
+    pallet.setAttribute('value', '#ff0000');
+    button.setAttribute('id', 'bgColor-submit-button');
+    button.setAttribute('type', 'submit');
+    button.setAttribute('value', 'Submit');
+    document.querySelector('#div-bgColor').appendChild(pallet);
+    document.querySelector('#div-bgColor').appendChild(button);
+  }
+});
