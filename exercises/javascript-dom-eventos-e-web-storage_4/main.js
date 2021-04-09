@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
 const textBox = document.querySelector('.textBox');
 
-console.log(window.getComputedStyle(textBox, null).getPropertyValue('font-size'));
-
 const sizeButton = document.getElementById('btn-fontSize');
 (function localStorageSettings() {
   if (localStorage.length === 0) {
@@ -110,6 +108,7 @@ const sizeButton = document.getElementById('btn-fontSize');
       sizePlus.setAttribute('hidden', 'true');
     }
   });
+
   // Show PlusButton
   const sizeLess = document.getElementById('btnSelectorLess');
   sizeButton.addEventListener('click', () => {
@@ -119,6 +118,7 @@ const sizeButton = document.getElementById('btn-fontSize');
       sizeLess.setAttribute('hidden', 'true');
     }
   });
+
   // Definindo tamanho da fonte
   sizePlus.addEventListener('click', () => {
     const style = window.getComputedStyle(textBox, null).getPropertyValue('font-size');
@@ -136,24 +136,54 @@ const sizeButton = document.getElementById('btn-fontSize');
 })();
 
 (function EspacamentoTexto() {
-  // Adicionando botão que mostra seletor de espaçamento de texto:
+  const spaceLineButton = document.getElementById('btn-lineSpacing');
+  // Show LessButton
+  const spaceSizePlus = document.getElementById('btnSpaceSelectorPlus');
+  spaceLineButton.addEventListener('click', () => {
+    if (spaceSizePlus.getAttribute('hidden') === 'true') {
+      spaceSizePlus.removeAttribute('hidden');
+    } else {
+      spaceSizePlus.setAttribute('hidden', 'true');
+    }
+  });
 
-  function lineSpacingButton() {
-    const x = document.createElement('button');
-    x.innerText = 'Espaçamento';
-    x.setAttribute('id', 'btn-lineSpacing');
-    document.querySelector('.buttons').appendChild(x);
-  }
-  lineSpacingButton();
+  // Show PlusButton
+  const spaceSizeless = document.getElementById('btnSpaceSelectorLess');
+  spaceLineButton.addEventListener('click', () => {
+    if (spaceSizeless.getAttribute('hidden') === 'true') {
+      spaceSizeless.removeAttribute('hidden');
+    } else {
+      spaceSizeless.setAttribute('hidden', 'true');
+    }
+  });
+
+  // Definindo tamanho do espaçamento
+  spaceSizePlus.addEventListener('click', () => {
+    const style = window.getComputedStyle(textBox, null).getPropertyValue('line-height');
+    const currentSize = parseFloat(style);
+    localStorage.lSpacing = `${currentSize + 1}px`;
+    textBox.style.lineHeight = localStorage.lSpacing;
+  });
+
+  spaceSizeless.addEventListener('click', () => {
+    const style = window.getComputedStyle(textBox, null).getPropertyValue('line-height');
+    const currentSize = parseFloat(style);
+    localStorage.lSpacing = `${currentSize - 1}px`;
+    textBox.style.lineHeight = localStorage.lSpacing;
+  });
 })();
 
 (function TipoFonte() {
-  // Adicionando botão que mostra seletor de fonte de texto:
-  function fontFamilyButton() {
-    const x = document.createElement('button');
-    x.innerText = 'Tipo da Fonte';
-    x.setAttribute('id', 'btn-fontType');
-    document.querySelector('.buttons').appendChild(x);
-  }
-  fontFamilyButton();
+  // Show fontFamilyOptions
+  const fontFamilyButton = document.getElementById('btn-fontFamily');
+  fontFamilyButton.addEventListener('click', () => {
+    const fontList = document.querySelector('#radio').children;
+    for (let i = 0; i < fontList.length; i += 1) {
+      if (fontList[i].getAttribute('hidden') === 'true') {
+        fontList[i].removeAttribute('hidden');
+      } else {
+        fontList[i].setAttribute('hidden', 'true');
+      }
+    }
+  });
 })();
