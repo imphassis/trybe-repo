@@ -23,6 +23,21 @@ function createBgPallet() {
 }
 createBgPallet();
 
+// Criando gatilho para botão "Cor de fundo da tela" mostrar paleta de cores do Background:
+const bgColorButton = document.getElementById('btn-bgColor');
+bgColorButton.addEventListener('click', () => {
+  const bgPallet = document.getElementById('bg-pallet');
+  if (bgPallet.getAttribute('hidden') === 'true') {
+    bgPallet.removeAttribute('hidden');
+  } else {
+    bgPallet.setAttribute('hidden', 'true');
+  }
+});
+const bgPallet = document.getElementById('bg-pallet');
+bgPallet.addEventListener('input', (event) => {
+  textBox.style.backgroundColor = event.target.value;
+});
+
 // Adicionando botão que mostra paleta de cores para texto:
 function textColorButton() {
   const x = document.createElement('button');
@@ -46,7 +61,7 @@ function createTxtPallet() {
 }
 createTxtPallet();
 
-// Criando gatilho para botão "Cor do Texto" mostrar paleta de cores
+// Criando gatilho para botão "Cor do Texto" mostrar paleta de cores do texto:
 const txtColorButton = document.getElementById('btn-textColor');
 txtColorButton.addEventListener('click', () => {
   const txtPallet = document.getElementById('txt-pallet');
@@ -87,25 +102,3 @@ function fontFamilyButton() {
   document.querySelector('.buttons').appendChild(x);
 }
 fontFamilyButton();
-
-const bgButton = document.getElementById('btn-bgColor');
-
-bgButton.addEventListener('click', () => {
-  const bgPallet = document.getElementById('bg-pallet');
-  const submitButton = document.getElementById('bgColor-submit-button');
-  if (bgPallet && submitButton) {
-    bgPallet.remove();
-    submitButton.remove();
-  } else {
-    const pallet = document.createElement('input');
-    const button = document.createElement('input');
-    pallet.setAttribute('type', 'color');
-    pallet.setAttribute('id', 'bg-pallet');
-    pallet.setAttribute('value', '#ff0000');
-    button.setAttribute('id', 'bgColor-submit-button');
-    button.setAttribute('type', 'submit');
-    button.setAttribute('value', 'Submit');
-    document.querySelector('#div-bgColor').appendChild(pallet);
-    document.querySelector('#div-bgColor').appendChild(button);
-  }
-});
