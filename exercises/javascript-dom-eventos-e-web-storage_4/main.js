@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 /* eslint-disable no-undef */
 const textBox = document.querySelector('.textBox');
 
@@ -8,7 +9,7 @@ const sizeButton = document.getElementById('btn-fontSize');
     localStorage.txtColor = 'black';
     localStorage.fSize = '1em';
     localStorage.lSpacing = '1em';
-    localStorage.ftFamily = 'Courier New';
+    localStorage.ftFamily = 'Arial';
   }
 })();
 
@@ -186,4 +187,15 @@ const sizeButton = document.getElementById('btn-fontSize');
       }
     }
   });
+
+  // Definindo tipo da fonte
+
+  const myRadios = document.getElementById('radio').children;
+
+  for (let i = 0; i < myRadios.length; i += 1) {
+    myRadios[i].addEventListener('click', (event) => {
+      localStorage.ftFamily = event.target.value;
+      textBox.style.fontFamily = localStorage.ftFamily;
+    });
+  }
 })();
