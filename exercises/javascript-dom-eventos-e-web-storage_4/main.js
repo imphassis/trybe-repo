@@ -1,7 +1,9 @@
 /* eslint-disable no-undef */
 const textBox = document.querySelector('.textBox');
-const sizeButton = document.getElementById('btn-fontSize');
 
+console.log(window.getComputedStyle(textBox, null).getPropertyValue('font-size'));
+
+const sizeButton = document.getElementById('btn-fontSize');
 (function localStorageSettings() {
   if (localStorage.length === 0) {
     localStorage.bgColor = 'null';
@@ -50,6 +52,8 @@ const sizeButton = document.getElementById('btn-fontSize');
         bgPallet.setAttribute('hidden', 'true');
       }
     });
+
+    // Gatilho para bgpallet trocar cor do background:
     const bgPallet = document.getElementById('bg-pallet');
     bgPallet.addEventListener('input', (event) => {
       localStorage.bgColor = event.target.value;
@@ -97,11 +101,9 @@ const sizeButton = document.getElementById('btn-fontSize');
 })();
 
 (function TamanhoFonte() {
-  // Comando para mostrar botões "+" e "-"
-
   // Show LessButton
+  const sizePlus = document.getElementById('btnSelectorPlus');
   sizeButton.addEventListener('click', () => {
-    const sizePlus = document.getElementById('btnSelectorPlus');
     if (sizePlus.getAttribute('hidden') === 'true') {
       sizePlus.removeAttribute('hidden');
     } else {
@@ -109,13 +111,27 @@ const sizeButton = document.getElementById('btn-fontSize');
     }
   });
   // Show PlusButton
+  const sizeLess = document.getElementById('btnSelectorLess');
   sizeButton.addEventListener('click', () => {
-    const sizeLess = document.getElementById('btnSelectorLess');
     if (sizeLess.getAttribute('hidden') === 'true') {
       sizeLess.removeAttribute('hidden');
     } else {
       sizeLess.setAttribute('hidden', 'true');
     }
+  });
+  // Definindo tamanho da fonte
+  sizePlus.addEventListener('click', () => {
+    const style = window.getComputedStyle(textBox, null).getPropertyValue('font-size');
+    const currentSize = parseFloat(style);
+    localStorage.fSize = `${currentSize + 1}px`;
+    textBox.style.fontSize = localStorage.fSize;
+  });
+
+  sizeLess.addEventListener('click', () => {
+    const style = window.getComputedStyle(textBox, null).getPropertyValue('font-size');
+    const currentSize = parseFloat(style);
+    localStorage.fSize = `${currentSize - 1}px`;
+    textBox.style.fontSize = localStorage.fSize;
   });
 })();
 
