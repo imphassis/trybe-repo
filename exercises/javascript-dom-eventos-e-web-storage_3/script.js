@@ -161,6 +161,7 @@ addLabel('green');
 const taskCircle = document.querySelector('.my-tasks div');
 function taskSelection() {
   taskCircle.classList.add('tasks');
+
   taskCircle.addEventListener('click', () => {
     if (taskCircle.classList.contains('task-selected')) {
       taskCircle.classList.remove('task-selected');
