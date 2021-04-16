@@ -12,68 +12,109 @@
       <h1 class="title is-2">Formulário de Currículo</h1>
     </header>
     <form class="section" action="" method="GET" enctype="multipart/form-data">
-      <fieldset class="field" id="personal-data">
+      <!-- STARTING PERSONAL DATA -->
+      <div class="field" id="personal-data">
         <div class="control">
-          <label class="label" for="name-id">Nome: </label>
+          <label class="label">Nome: </label>
           <input class="input" id="name-id" />
         </div>
-        <div class="control">
-          <label class="label" for="email">E-mail:</label>
+      </div>
+      <div class="field">
+        <label class="label">E-mail:</label>
+        <div class="control has-icons-left has-icons-right">
           <input class="input" id="email" />
         </div>
+      </div>
+      <div class="field">
         <div class="control">
-          <label class="label" for="cpf-id">CPF: </label>
+          <label class="label">CPF: </label>
           <input class="input" id="cpf-id" />
         </div>
+      </div>
+      <div class="field">
         <div class="control">
-          <label class="label" for="address">Endereço: </label>
+          <label class="label">Endereço: </label>
           <input class="input" id="address" />
         </div>
+      </div>
+      <div class="field">
         <div class="control">
-          <label class="label" for="city">Cidade:</label>
+          <label class="label">Cidade:</label>
           <input class="input" id="city" />
         </div>
-        <div class="field">
+      </div>
+      <div class="field">
+        <div class="control">
           <label class="label">Estado:</label>
-          <div class="control">
-            <div class="select">
-              <select id="state-input" name="Estado"></select>
-            </div>
+          <div class="select">
+            <select id="state-input" name="Estado"></select>
           </div>
         </div>
-        <!-- Radio Buttons -->
+      </div>
+      <!-- Radio Buttons -->
+      <div class="field">
         <div class="control">
-          <p class="label">Tipo de domicílio:</p>
-
-          <label class="label" for="casa-type">Casa</label>
-          <input type="radio" id="casa-type" name="Tipo de residência" /> <br />
-          <label class="label" for="ap-type">Apartamento </label><br />
-          <input class="input" type="radio" id="ap-type" name="Tipo de residência" />
+          <label class="label">Tipo de domicílio:</label>
+          <label class="radio">
+            <input type="radio" name="housetype" value="Casa" />
+            Casa
+          </label>
+          <label class="radio">
+            <input type="radio" name="housetype" value="Apartamento" />Apartamento
+          </label>
         </div>
-      </fieldset>
-      <fieldset class="field" id="last-job">
+      </div>
+      <div class="field" id="last-job">
         <div class="control">
-          <label class="label" for="cv-resume">Resúmo do Currículo: </label>
-          <textarea class="textarea" maxlength="1000" name="Curriculum Resume" required id="cv-resume"></textarea>
+          <label class="label">Resúmo do Currículo: </label>
+          <textarea
+            class="textarea"
+            maxlength="1000"
+            name="Curriculum Resume"
+            required
+            id="cv-resume"
+          ></textarea>
         </div>
-        <br />
+      </div>
+      <div class="field">
         <div class="control">
           <label class="label" for="job-title">Cargo:</label>
           <input class="input" type="text" required id="job-title" name="Cargo" maxlength="40" />
         </div>
-        <br />
+      </div>
+      <div class="field">
         <div class="control">
-          <label class="label" for="job-description">Descrição do cargo:</label>
-          <input class="input" type="text" name="Descrição do cargo" required id="job-description" maxlength="500" />
+          <label class="label">Descrição do cargo:</label>
+          <input
+            class="input"
+            type="text"
+            name="Descrição do cargo"
+            required
+            id="job-description"
+            maxlength="500"
+          />
         </div>
+      </div>
+      <div class="field">
         <div class="control">
-          <label class="label" for="start-date"> Data de início:<input name="Data de início" type="text" id="start-date" required /></label>
-          <button type="submit" id="submitForm">Enviar</button>
+          <label class="label" for="start-date">
+            Data de início:<input
+              class="input"
+              name="Data de início"
+              type="text"
+              id="start-date"
+              required
+          /></label>
         </div>
-      </fieldset>
-      <input class="input" class="btn btn-success" type="submit" />
+      </div>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-success" type="submit" id="submitForm">Enviar</button>
+          <button class="button is-danger" id="cleanButton">Limpar</button>
+        </div>
+      </div>
     </form>
-    <button class="btn btn-danger" id="cleanButton">Limpar</button>
+
     <div class="control" id="resultado"></div>
   </body>
   <script src="script.js"></script>
