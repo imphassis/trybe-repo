@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Formulário de Currículo</title>
+  </head>
+  <body>
+    <header>
+      <h1>Formulário de Currículo</h1>
+    </header>
+    <form action="" method="GET">
+      <fieldset id="personal-data">
+        <label for="name-id">Nome: <input id="name-id" /></label><br />
+        <label for="email">E-mail: <input id="email" /></label>
+        <label for="cpf-id">CPF: <input id="cpf-id" /></label>
+        <br />
+        <label for="address">Endereço: <input id="address" /></label>
+        <br />
+        <label for="city">Cidade: <input id="city" /></label>
+        <label for="state">Estado:</label>
+        <select id="state" name="Estado"></select>
+        <br />
+        <label for="houseType">Tipo de domicílio: </label><br />
+        <label for="casa-type">Casa: <input type="radio" id="casa-type" name="Tipo de residência" required /></label>
+        <label for="ap-type">Apartamento: <input type="radio" id="ap-type" name="Tipo de residência" checked required /></label><br />
+      </fieldset>
+      <fieldset id="last-job">
+        <label for="cv-resume">Resúmo do Currículo:<br /><textarea maxlength="1000" name="Curriculum Resume" required id="cv-resume"></textarea></label><br />
+        <label for="job-title">Cargo:<input type="text" required id="job-title" name="Cargo" maxlength="40" /></label><br />
+        <label for="job-description">Descrição do cargo:<input type="text" name="Descrição do cargo" required id="job-description" maxlength="500" /></label>
+        <label for="start-date"> Data de início:<input name="Data de início" type="text" id="start-date" required /></label>
+        <button type="submit" id="submitForm">Enviar</button>
+      </fieldset>
+      <input type="submit" />
+    </form>
+    <button id="cleanButton">Limpar</button>
+    <div id="resultado"></div>
+  </body>
+  <script src="script.js"></script>
+</html>

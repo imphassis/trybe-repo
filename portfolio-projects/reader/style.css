@@ -1,0 +1,35 @@
+h1 {
+  display: inline-block;
+  margin-left: 300px;
+  margin-right: 300px;
+  text-align: center;
+  border: solid 2px blue;
+  width: 766px;
+}
+header p {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.textBox {
+  border: solid 2px black;
+  display: inline-block;
+  margin-left: 300px;
+  margin-right: 300px;
+  text-align: center;
+  width: 766px;
+  height: 468px;
+  overflow: scroll;
+  line-height: 20px;
+}
+.buttons div {
+  display: inline-block;
+}
+.buttons {
+  margin-left: 100px;
+}
+
+.buttons button {
+  padding: 5px;
+  margin: 10px;
+}
