@@ -1,21 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Flexbox - Align Content</title>
+    <style>
+      .box {
+        color: #9069ef;
+        background-color: rgb(243, 243, 243);
+        border: 2px solid #232525;
+        font-size: 50px;
+        height: 60px;
+        margin: 10px 5px;
+        text-align: center;
+        width: 30%;
+      }
+
+      .box-container {
+        align-content: stretch;
+        background-color: #0fa36b;
+        display: flex;
+        flex-wrap: wrap;
+        height: 600px;
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <h1>Formulário</h1>
-    </header>
-    <main>
-      <form>
-        <label for="user">Usuário: <input required autofocus placeholder = 'Digite seu e-mail'type="email" name="user" autocomplete="off"/> </label></br></br>
-        <label for="password">Senha: <input required placeholder = 'Digite sua senha' type="password" name="password" /></label>
-        <button type='submit'>Entrar</button>
-      </form>
-    </main>
+    <div class="box-container">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+      <div class="box">7</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+    </div>
   </body>
 </html>
