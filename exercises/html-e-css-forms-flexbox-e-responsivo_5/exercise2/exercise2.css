@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/* Medium devices - 600 to 1000px */
+
+body {
+  background-color: aliceblue;
+}
+
+header {
+  display: flex;
+  background-color: #333333;
+  color: white;
+
+  flex-flow: column nowrap;
+  padding-bottom: 20px;
+}
+
+nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+nav ul li {
+  border: 1px solid rgb(0, 0, 0);
+  color: white;
+  border-radius: 8%;
+  background-color: rgb(145, 145, 145);
+  padding: 5px;
+  margin: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header p {
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  font-family: Georgia;
+}
+
+.main-content {
+  margin: 15px;
+}
+
+.aside-one {
+  padding: 30px;
+}
+
+.aside-two {
+  padding: 30px;
+}
+
+/* Screen max 600px width  -- small devices*/
+@media screen and (max-width: 600px) {
+  .aside-one,
+  .aside-two {
+    margin-left: 15px;
+  }
+  header p {
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: Georgia;
+  }
+
+  .aside-one {
+    display: none;
+  }
+  header a.icon {
+    text-align: center;
+    width: 3vh;
+    background-color: grey;
+    padding: 10px;
+  }
+
+  #listLinks {
+    display: none;
+  }
+  .main-content {
+    font-size: 1.25em;
+    padding: 15px;
+  }
+  .main-content h1 {
+    text-align: center;
+    font-size: 1.25em;
+  }
+}
