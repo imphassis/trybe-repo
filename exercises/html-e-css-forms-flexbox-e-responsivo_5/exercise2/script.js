@@ -1,11 +1,11 @@
-const asideOne = document.getElementsByClassName('aside-one')[0];
+const listLink = document.getElementById('listLinks');
 const barButton = document.querySelector('.icon');
 
 function showBar() {
-  if (asideOne.style.display === 'block') {
-    asideOne.style.display = 'none';
+  if (listLink.style.display === 'block') {
+    listLink.style.display = 'none';
   } else {
-    asideOne.style.display = 'block';
+    listLink.style.display = 'block';
   }
 }
 
