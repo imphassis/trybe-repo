@@ -10,5 +10,3 @@ function showBar() {
 }
 
 barButton.addEventListener('click', showBar);
-
-console.log(barButton);
