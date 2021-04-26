@@ -10,3 +10,7 @@ function showBar() {
 }
 
 barButton.addEventListener('click', showBar);
+
+for (let i = 0; i < listLink.length; i += 1) {
+  console.log('blablabla');
+}
