@@ -33,7 +33,7 @@ const createReport = (lessons, key, value) => {
   return students;
 };
 
-console.log(createReport(allLessons, 'Matemática'));
+// console.log(createReport(allLessons, 'Matemática'));
 
 //Bonus 2
 
@@ -47,7 +47,18 @@ const teacherReport = (lessons, teacher) => {
   if (discipline[0] === discipline[1]) {
     discipline.filter((item) => item !== discipline);
   }
-  return discipline;
+
+  students = 0;
+
+  for (i in Object.keys(lessons)) {
+    if (Object.values(lessons)[i]['materia'] === discipline[0]) {
+      students += Object.values(lessons)[i]['numeroEstudantes'];
+    }
+  }
+
+  console.log(`Professor: ${teacher}, 
+  aulas: ${discipline}
+  estudantes: ${students}`);
 };
 
-console.log(teacherReport(allLessons, 'Maria Clara'));
+teacherReport(allLessons, 'Maria Clara');
