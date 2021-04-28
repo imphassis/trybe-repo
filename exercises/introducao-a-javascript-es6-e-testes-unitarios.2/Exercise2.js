@@ -69,8 +69,8 @@ let allLessons = Object.assign({}, { lesson1, lesson2, lesson3 });
 // // console.log(Object.values(lesson1)[0]);
 
 //Exercise 8
-const evenExist = (object, key, value) =>
-  object[key] === value ? console.log('true') : console.log('false');
+// const evenExist = (object, key, value) =>
+//   object[key] === value ? console.log('true') : console.log('false');
 
-evenExist(lesson3, 'turno', 'noite');
-evenExist(lesson3, 'materia', 'Maria Clara');
+// evenExist(lesson3, 'turno', 'noite');
+// evenExist(lesson3, 'materia', 'Maria Clara');
