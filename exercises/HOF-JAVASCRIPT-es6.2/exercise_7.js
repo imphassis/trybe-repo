@@ -63,11 +63,22 @@ const books = [
   },
 ];
 
-function authorBornIn1947() {
-  const authorName = books.find((el) => el.author.birthYear === 1947);
-  return authorName.author.name;
+const expectedResult = false;
+
+function authorUnique() {
+  let array = [];
+  let resultado = true;
+  books.forEach((el) => array.push(el.author.birthYear));
+  array.sort();
+  const teste = array.forEach((el, index) => {
+    if (el === array[index + 1]) {
+      resultado = false;
+      return resultado;
+    }
+  });
+  return resultado;
 }
 
-console.log(authorBornIn1947());
+console.log(authorUnique());
 
-assert.strictEqual(authorBornIn1947(), 'Stephen King');
+assert.strictEqual(authorUnique(), expectedResult);
