@@ -1,4 +1,5 @@
 const assert = require('assert');
+const { SIGSTKFLT } = require('constants');
 
 const books = [
   {
@@ -63,29 +64,17 @@ const books = [
   },
 ];
 
-const expectedResult = {
-  author: {
-    birthYear: 1948,
-    name: 'George R. R. Martin',
-  },
-  genre: 'Fantasia',
-  id: 1,
-  name: 'As Crônicas de Gelo e Fogo',
-  releaseYear: 1991,
-};
+const expectedResult = [
+  'O Senhor dos Anéis',
+  'Fundação',
+  'O Chamado de Cthulhu',
+];
 
-const getNamedBook = () =>
-  (bookName = books.find((el) => el.name.length === 26));
+function oldBooks() {
+  const sixties = books.filter((el) => 2021 - el.releaseYear > 60);
+  return sixties.map((el) => el.name);
+}
 
-console.log(getNamedBook());
+// console.log(oldBooks());
 
-assert.deepStrictEqual(getNamedBook(), expectedResult);
-// let nameBook = '';
-// let count = 26;
-// const specificLength = books.forEach((element) => {
-//   if (element.name.length === count) {
-//     nameBook = element;
-//   }
-//   return nameBook;
-// });
-// return nameBook;
+assert.deepStrictEqual(oldBooks(), expectedResult);

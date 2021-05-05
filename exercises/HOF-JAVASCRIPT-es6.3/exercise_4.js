@@ -63,29 +63,34 @@ const books = [
   },
 ];
 
-const expectedResult = {
-  author: {
-    birthYear: 1948,
-    name: 'George R. R. Martin',
+const expectedResult = [
+  {
+    id: 6,
+    name: 'O Chamado de Cthulhu',
+    genre: 'Terror',
+    author: { name: 'H. P. Lovecraft', birthYear: 1890 },
+    releaseYear: 1928,
   },
-  genre: 'Fantasia',
-  id: 1,
-  name: 'As Crônicas de Gelo e Fogo',
-  releaseYear: 1991,
-};
+  {
+    id: 3,
+    name: 'Fundação',
+    genre: 'Ficção Científica',
+    author: { name: 'Isaac Asimov', birthYear: 1920 },
+    releaseYear: 1951,
+  },
+  {
+    id: 2,
+    name: 'O Senhor dos Anéis',
+    genre: 'Fantasia',
+    author: { name: 'J. R. R. Tolkien', birthYear: 1892 },
+    releaseYear: 1954,
+  },
+];
 
-const getNamedBook = () =>
-  (bookName = books.find((el) => el.name.length === 26));
+function oldBooks() {
+  const filterYear = books.filter((el) => 2021 - el.releaseYear > 60);
+  return filterYear.sort((a, b) => a.releaseYear - b.releaseYear);
+}
+// console.log(oldBooks());
 
-console.log(getNamedBook());
-
-assert.deepStrictEqual(getNamedBook(), expectedResult);
-// let nameBook = '';
-// let count = 26;
-// const specificLength = books.forEach((element) => {
-//   if (element.name.length === count) {
-//     nameBook = element;
-//   }
-//   return nameBook;
-// });
-// return nameBook;
+assert.deepStrictEqual(oldBooks(), expectedResult);

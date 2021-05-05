@@ -109,16 +109,8 @@ const expectedResult = [
 ];
 let numbers = [4, 2, 5, 1, 3];
 
-function booksOrderedByReleaseYearDesc() {
-  const compareYears = (a, b) => {
-    if (a.releaseYear > b.releaseYear) {
-      return -1;
-    } else return 1;
-  };
-  books.sort(compareYears);
-  return books;
-  // escreva aqui seu código
-}
+const booksOrderedByReleaseYearDesc = () =>
+  books.sort((a, b) => b.releaseYear - a.releaseYear);
 
 // console.log(booksOrderedByReleaseYearDesc());
 

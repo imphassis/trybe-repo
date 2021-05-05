@@ -63,29 +63,18 @@ const books = [
   },
 ];
 
-const expectedResult = {
-  author: {
-    birthYear: 1948,
-    name: 'George R. R. Martin',
-  },
-  genre: 'Fantasia',
-  id: 1,
-  name: 'As Crônicas de Gelo e Fogo',
-  releaseYear: 1991,
-};
+const expectedResult = 'O Senhor dos Anéis';
 
-const getNamedBook = () =>
-  (bookName = books.find((el) => el.name.length === 26));
+function authorWith3DotsOnName() {
+  const filterName = books.filter(
+    (el) =>
+      Object.values(el.author.name)[1] === '.' &&
+      Object.values(el.author.name)[4] === '.' &&
+      Object.values(el.author.name)[7] === '.'
+  );
+  return filterName[0].name;
+}
 
-console.log(getNamedBook());
+// console.log(auth orWith3DotsOnName());
 
-assert.deepStrictEqual(getNamedBook(), expectedResult);
-// let nameBook = '';
-// let count = 26;
-// const specificLength = books.forEach((element) => {
-//   if (element.name.length === count) {
-//     nameBook = element;
-//   }
-//   return nameBook;
-// });
-// return nameBook;
+assert.deepStrictEqual(authorWith3DotsOnName(), expectedResult);
