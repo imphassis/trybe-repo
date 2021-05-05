@@ -65,13 +65,7 @@ const books = [
 
 const expectedResult = false;
 
-let list = [3, 6, 3, 4, 6, 8, 19];
-
-function everyoneWasBornOnSecXX() {
-  const century = (el) => el.author.birthYear > 1900;
-
-  return books.every(century);
-}
-console.log(everyoneWasBornOnSecXX());
+const everyoneWasBornOnSecXX = () =>
+  books.every((el) => el.author.birthYear > 1900);
 
 assert.strictEqual(everyoneWasBornOnSecXX(), expectedResult);

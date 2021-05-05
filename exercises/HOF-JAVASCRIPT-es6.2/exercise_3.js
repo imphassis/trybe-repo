@@ -74,16 +74,18 @@ const expectedResult = {
   releaseYear: 1991,
 };
 
-function getNamedBook() {
-  let nameBook = '';
-  let count = 26;
-  const specificLength = books.forEach((element) => {
-    if (element.name.length === count) {
-      nameBook = element;
-    }
-    return nameBook;
-  });
-  return nameBook;
-}
+const getNamedBook = () =>
+  (bookName = books.find((el) => el.name.length === 26));
+
+console.log(getNamedBook());
 
 assert.deepStrictEqual(getNamedBook(), expectedResult);
+// let nameBook = '';
+// let count = 26;
+// const specificLength = books.forEach((element) => {
+//   if (element.name.length === count) {
+//     nameBook = element;
+//   }
+//   return nameBook;
+// });
+// return nameBook;

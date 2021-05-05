@@ -63,18 +63,20 @@ const books = [
   },
 ];
 
-function smallerName() {
-  let nameBook = '';
-  let count = books[0].name.length;
-  const smallerName = books.forEach((element) => {
-    if (element.name.length < count) {
-      count = element.name.length;
-      nameBook = element;
-    }
-    return nameBook;
-  });
+const smallerName = () =>
+  (small = books.map((el) => el.name).sort((a, b) => a.length - b.length)[0]);
 
-  return nameBook.name;
-}
+console.log(smallerName());
 
-assert.strictEqual(smallerName(), 'Duna');
+// assert.strictEqual(smallerName(), 'Duna');
+
+// let nameBook = '';
+// let count = books[0].name.length;
+// const smallerName = books.forEach((element) => {
+//   if (element.name.length < count) {
+//     count = element.name.length;
+//     nameBook = element;
+//   }
+//   return nameBook;
+// });
+// return nameBook.name;

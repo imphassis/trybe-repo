@@ -65,19 +65,12 @@ const books = [
 
 const expectedResult = false;
 
-function authorUnique() {
-  let array = [];
-  let resultado = true;
-  books.forEach((el) => array.push(el.author.birthYear));
-  array.sort();
-  const teste = array.forEach((el, index) => {
-    if (el === array[index + 1]) {
-      resultado = false;
-      return resultado;
-    }
-  });
-  return resultado;
-}
+const authorUnique = () => {
+  let authorBooks = books
+    .map((el) => el.author.birthYear)
+    .sort((a, b) => a - b);
+  return authorBooks.some((el, index, array) => !el === array[index + 1]);
+};
 
 console.log(authorUnique());
 
