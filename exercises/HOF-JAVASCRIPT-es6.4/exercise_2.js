@@ -63,12 +63,13 @@ const books = [
   },
 ];
 
-function allNames() {
-  const redFunction = (acc, curr, i, a) => `${acc} ${curr.author.name},`;
-
-  const everyOne = books.reduce(redFunction, 'Nomes:');
+const allNames = () => {
+  const everyOne = books.reduce(
+    (acc, curr, i, a) => `${acc} ${curr.author.name},`,
+    'Nomes:'
+  );
   return `${everyOne.slice(0, -1)}.`;
-}
+};
 
 console.log(allNames());
 
