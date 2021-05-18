@@ -1,4 +1,4 @@
-const myRemove = require('../src/oldExercises/exercise_2');
+const myRemove = require('../../src/oldExercises/exercise_2');
 
 describe('Check if the Function myRemove works', () => {
   it('Check if myRemove([1, 2, 3, 4], 3) will return the expected ', () =>

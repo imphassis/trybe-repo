@@ -1,4 +1,4 @@
-const sum = require('../src/oldExercises/exercise_1');
+const sum = require('../../src/oldExercises/exercise_1');
 
 describe('Check function Sum', () => {
   it('Check if sum(4,5) will return 9', () => {

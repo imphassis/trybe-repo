@@ -1,4 +1,4 @@
-const myRemoveWithoutCopy = require('../src/oldExercises/exercise_3');
+const myRemoveWithoutCopy = require('../../src/oldExercises/exercise_3');
 
 describe('Check if the function myRemoveWithoutCopy Works ', () => {
   it('Check if myRemoveWithoutCopy([1,2,3,4] return the expected array', () => {
