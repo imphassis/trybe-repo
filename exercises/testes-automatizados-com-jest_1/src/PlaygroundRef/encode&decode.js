@@ -1,4 +1,4 @@
-const encoding = (string) => {
+const encode = (string) => {
   let stringToArray = Array.from(string);
   stringToArray.forEach((el) => {
     const alphabet = ['a', 'e', 'i', 'o', 'u'];
@@ -11,8 +11,8 @@ const encoding = (string) => {
   return stringToArray.join('');
 };
 
-const decoding = (string) => {
-  let stringToArray = Array.from(string, (x) => Number(x));
+const decode = (string) => {
+  let stringToArray = Array.from(string, (x) => (Number.isNaN(Number(x)) ? x : Number(x)));
   stringToArray.forEach((el) => {
     const alphabet = ['a', 'e', 'i', 'o', 'u'];
     const numerals = [1, 2, 3, 4, 5];
@@ -24,5 +24,7 @@ const decoding = (string) => {
   return stringToArray.join('');
 };
 
-console.log(encoding('aeiou'), 'must return numbers');
-console.log(decoding('12345'), 'must return vogals');
+module.exports = {
+  encode,
+  decode,
+};
