@@ -24,6 +24,8 @@ const decode = (string) => {
   return stringToArray.join('');
 };
 
+console.log(encode('aeiou'));
+
 module.exports = {
   encode,
   decode,
