@@ -1,4 +1,4 @@
-const { users, findUserById, getUserName } = require('../src/exercise_2async.js');
+const { users, findUserById, getUserName } = require('../src/exercise_3async.js');
 
 describe('Check if findUserById function works as properly', () => {
   it('Checking findUserById(4) using await and async', async () => {
