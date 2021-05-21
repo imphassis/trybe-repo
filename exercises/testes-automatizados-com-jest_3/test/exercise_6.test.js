@@ -2,15 +2,21 @@ const dog = require('../src/exercise_6');
 
 const apiUrl = 'https://dog.ceo/api/breeds/image/random';
 
+dog.dogAPI;
+
 describe('Mocking dogPictures', () => {
-  const dogAPI = jest.fn().mockResolvedValue('Request Success!');
+  dog.dogAPI = jest.fn();
+  afterEach(dog.dogAPI.mockReset);
   it('Testing with request success', async () => {
-    await dogAPI(apiUrl);
-    expect(dogAPI(apiUrl)).resolves.toBe('Request Success!');
+    dog.dogAPI.mockResolvedValue('Request Success!');
+    await dog.dogAPI(apiUrl);
+    expect(dog.dogAPI).toHaveBeenCalled();
+    expect(dog.dogAPI(apiUrl)).resolves.toBe('Request Success!');
+    expect(dog.dogAPI).toHaveBeenCalledTimes(2);
   });
 
   it('Testing with request fail', async () => {
-    dogAPI.mockRejectedValue('Request Failed!');
-    expect(dogAPI()).rejects.toMatch('Request Failed!');
+    dog.dogAPI.mockRejectedValue('Request Failed!');
+    expect(dog.dogAPI()).rejects.toMatch('Request Failed!');
   });
 });
