@@ -68,9 +68,6 @@ describe('Mocking substract function with restored implementation', () => {
     // restoring;
     math.subtrair.mockRestore();
     math.subtrair(15, 2);
-    expect(math.subtrair).toHaveBeenCalled();
-    expect(math.subtrair).toHaveBeenCalledTimes(1);
-    expect(math.subtrair).toHaveBeenCalledWith(15, 2);
     expect(math.subtrair(15, 2)).toBe(13);
   });
 });
