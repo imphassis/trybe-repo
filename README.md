@@ -11,7 +11,7 @@ This repository is divided by blocks and in each folder you will find subfolders
 - [Bloco 02 - Git, Github and Internet](https://github.com/imphassis/trybe-repo/tree/master/exercises/bloco_2)
 - [Bloco 03 - Introduction to HTML and CSS](https://github.com/imphassis/trybe-repo/tree/master/exercises/bloco_3)
 - [Block 04 - Introduction to Javascript and Programming Logic](https://github.com/imphassis/trybe-repo/tree/master/exercises/bloco_4)
-- [Block 05 - Javascript: Dom, Events and Web Storage](hthttps://github.com/imphassis/trybe-repo/tree/master/exercises/bloco_5)
+- [Block 05 - Javascript: Dom, Events and Web Storage](https://github.com/imphassis/trybe-repo/tree/master/exercises/bloco_5)
 - [BLock 06 - HTML and CSS: Forms, Flexbox and Responsive](https://github.com/imphassis/trybe-repo/tree/master/exercises/bloco_6)
 - [Block 07 - Introduction to Javascript ES6 and Unitary Tests](https://github.com/imphassis/trybe-repo/tree/master/exercises/bloco_7)
 - [Block 08 - Higher Order Functions JS ES6](https://github.com/imphassis/trybe-repo/tree/master/exercises/bloco_8)
