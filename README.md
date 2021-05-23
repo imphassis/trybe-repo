@@ -6,7 +6,7 @@ Welcome to my public trybe-repo. Here you will find all of my projects and exerc
 
 This repository is divided by blocks and in each folder you will find subfolders relative to the specific block.
 
-[ x ] Block 01 - Basics of Web Development
+[x] Block 01 - Basics of Web Development
 
 - [Bloco 02 - Git, Github and Internet](https://github.com/imphassis/trybe-repo/tree/master/exercises/bloco_2)
 - [Bloco 03 - Introduction to HTML and CSS](https://github.com/imphassis/trybe-repo/tree/master/exercises/bloco_3)
