@@ -1,0 +1,10 @@
+**/.git/
+**/.github/
+**/node_modules/
+**/.trybe/
+**/cypress/
+**/.vscode/
+**/package.json
+**/package-lock.json
+**/cypress.json
+**/.editorconfig
