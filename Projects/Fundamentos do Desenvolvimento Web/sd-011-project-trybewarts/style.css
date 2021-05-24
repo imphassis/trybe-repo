@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  background-color: rgb(50, 167, 145);
+  width: 100%;
+  height: 80px;
+}
+
+.trybewarts-header-logo {
+  width: 100%;
+  height: 100%;
+}
+
+#login-button {
+  width: 100px;
+  margin-left: 20px;
+}
+
+.trybewarts-login {
+  display: flex;
+  flex-flow: row nowrap;
+  align-self: center;
+}
+
+.trybewarts-login input {
+  margin: 5px;
+}
+
+#trybewarts-header-title {
+  align-self: center;
+}
+
+main {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+#evaluation-form {
+  padding-top: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 675px;
+  flex-basis: 675px;
+}
+
+#trybewarts-forms-logo {
+  width: 100%;
+  max-width: 500px;
+  height: 500px;
+}
+
+.row {
+  padding-top: 10px;
+}
+
+#emailAndHouse {
+  border: 2px solid blue;
+  width: 100%;
+}
+
+#houseDiv {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#houseLabel {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+#house {
+  width: 100%;
+  text-align: center;
+}
+
+.evaluation {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.separador {
+  margin-left: 10px;
+  margin-top: 20px;
+  width: 97%;
+  align-items: center;
+  height: 2px;
+  background-color: grey;
+}
+
+#agreement-div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: rgb(75, 75, 75);
+}
