@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+.btnSelector {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+h1 {
+  text-align: center;
+}
