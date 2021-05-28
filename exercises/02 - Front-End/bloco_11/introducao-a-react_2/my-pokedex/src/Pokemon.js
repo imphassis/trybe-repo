@@ -1,21 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Card from 'react-bootstrap/Card';
+import { CardColumns } from 'react-bootstrap';
 
 class Pokemon extends React.Component {
   render() {
     const { name, type, averageWeight, image } = this.props.pokemon;
     return (
-      <div className="pokediv">
-        <div className="poke-specs">
-          <p className="poke-Name">{name}</p>
-          <p> {type}</p>
-          <p>
-            Average Weight: {averageWeight.value} {averageWeight.measurementUnit}
-          </p>
-        </div>
-
-        <img src={image} alt={this.props.pokemon.name} />
-      </div>
+      <Card bg="light" style={{ width: '18rem' }} className="pokediv">
+        <Card.Header className="poke-Name">{name}</Card.Header>
+        <Card.Img variant="top" src={image} alt={this.props.pokemon.name} />
+        <Card.Body className="poke-specs">
+          <Card.Footer>
+            <Card.Text> {type}</Card.Text>
+            <Card.Text>
+              Average Weight: {averageWeight.value} {averageWeight.measurementUnit}
+            </Card.Text>
+          </Card.Footer>
+        </Card.Body>
+      </Card>
     );
   }
 }
