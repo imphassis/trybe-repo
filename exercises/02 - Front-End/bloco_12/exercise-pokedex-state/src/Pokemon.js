@@ -3,6 +3,12 @@ import Card from 'react-bootstrap/Card';
 import './PokeStyle.css';
 
 class Pokemon extends React.Component {
+  disabledButton = () => {
+    if (this.filterFunction().length < 2) {
+      document.querySelector('.nextButton').setAttribute('class', 'disabled');
+    }
+  };
+
   render() {
     const { name, type, averageWeight, image } = this.props.pokemon;
 

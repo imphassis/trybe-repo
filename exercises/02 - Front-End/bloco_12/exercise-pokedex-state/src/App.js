@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <div>
+        <div className="pokedexFrame">
           <h1> Pokedex </h1>
           <Pokedex pokemons={pokemons} />
         </div>
