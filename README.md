@@ -31,3 +31,4 @@ This repository is divided by blocks and in each folder you will find subfolders
 ## Projects
 - [x]   [Module 01 ](https://github.com/imphassis/trybe-repo/tree/master/Projects/modulo1)
   -  [Project Color Guess](https://imphassis.github.io/trybe-repo/Projects/modulo1/sd-011-project-color-guess/index.html)
+  -  [Project Pixels Art](https://imphassis.github.io/trybe-repo/Projects/modulo1/sd-011-project-pixels-art)
