@@ -7,12 +7,12 @@ import './PokeStyle.css';
 class App extends Component {
   render() {
     return (
-      <>
+      <React.Fragment>
         <div>
           <h1> Pokedex </h1>
           <Pokedex pokemons={pokemons} />
         </div>
-      </>
+      </React.Fragment>
     );
   }
 }
