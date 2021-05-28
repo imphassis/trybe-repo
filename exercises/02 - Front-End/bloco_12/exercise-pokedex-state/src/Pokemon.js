@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import './PokeStyle.css';
 
 class Pokemon extends React.Component {
@@ -9,7 +8,9 @@ class Pokemon extends React.Component {
 
     return (
       <Card bg="light" border="dark" className="text-center">
-        <Card.Header> {name} </Card.Header>
+        <Card.Header>
+          <Card.Title>{name}</Card.Title>
+        </Card.Header>
         <Card.Img variant="bottom" src={image} alt={`${name} sprite`} />
         <Card.Body className="text-center">
           <Card.Text> {type} </Card.Text>
