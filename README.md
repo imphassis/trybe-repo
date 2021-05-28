@@ -27,3 +27,6 @@ This repository is divided by blocks and in each folder you will find subfolders
   - Block 17 - [ Trivia Game Project](https://)
   - Block 18 - [ API Context and React Hooks](https://)
   - Block 19 - [Cooking Recipe Project](https://)
+  - 
+## Projects
+- [x] [Module 01 ](https://github.com/imphassis/trybe-repo/tree/master/Projects/modulo1)
