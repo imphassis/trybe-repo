@@ -10,6 +10,7 @@ class Pokedex extends React.Component {
     this.state = {
       pokeIndex: 0,
       pokeType: 'Fire',
+      filterIndex: true,
     };
 
     this.changePokemonPlus = this.changePokemonPlus.bind(this);
@@ -33,7 +34,6 @@ class Pokedex extends React.Component {
   resetIndex = () => this.setState((current) => (current.pokeIndex = 0));
 
   ChangeType = (element) => {
-    console.log(this.state.pokeElements);
     this.resetIndex();
     this.setState((first) => {
       first.pokeType = element;
@@ -60,18 +60,25 @@ class Pokedex extends React.Component {
       Bug: 'outline-success',
     };
     return (
-      <>
+      <div>
         <div className="pokedex">
           <Pokemon pokemon={this.filterFunction()[this.state.pokeIndex]} />
         </div>
         <div className="btns">
-          <Button variant="success" click={this.changePokemonPlus} name={'Next'} />
           {uniqueElements.map((el) => (
             <Button variant={obj[el]} click={() => this.ChangeType(el)} name={el} key={el}></Button>
           ))}
           <Button variant="light" click={() => this.ChangeType('')} name={'All'} />
         </div>
-      </>
+        <div className="nextButton">
+          <Button
+            disabled={this.filterFunction().length < 2 ? true : null}
+            variant="success"
+            click={this.changePokemonPlus}
+            name={'Next'}
+          />
+        </div>
+      </div>
     );
   }
 }
