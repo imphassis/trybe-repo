@@ -1,0 +1,36 @@
+.title {
+  text-align: center;
+}
+
+.deck {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.pokediv {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin: 10px;
+  border: 2px solid grey;
+}
+
+img {
+  align-self: center;
+  max-height: 200px;
+  max-width: 200px;
+  min-width: 50px;
+  min-height: 50px;
+  height: auto;
+  overflow: hidden;
+}
+
+.poke-Name {
+  text-align: center;
+  font-weight: bold;
+}
+
+p {
+  text-align: center;
+}
