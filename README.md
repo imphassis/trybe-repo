@@ -6,7 +6,7 @@ Welcome to my public trybe-repo. Here you will find all of my projects and exerc
 
 This repository is divided by blocks and in each folder you will find subfolders relative to the specific block.
 
-- [x] [Block 01 - Basics of Web Development](https://github.com/imphassis/trybe-repo/tree/master/exercises/module_1)
+- [x]  [Block 01 - Basics of Web Development](https://github.com/imphassis/trybe-repo/tree/master/exercises/module_1)
   - [Bloco 02 - Git, Github and Internet](https://github.com/imphassis/trybe-repo/tree/master/exercises/module_1/bloco_2)
   - [Bloco 03 - Introduction to HTML and CSS](https://github.com/imphassis/trybe-repo/tree/master/exercises/module_1/bloco_3)
   - [Block 04 - Introduction to Javascript and Programming Logic](https://github.com/imphassis/trybe-repo/tree/master/exercises/module_1/bloco_4)
@@ -29,5 +29,5 @@ This repository is divided by blocks and in each folder you will find subfolders
   - Block 19 - [Cooking Recipe Project](https://)
   - 
 ## Projects
-- [x] [Module 01 ](https://github.com/imphassis/trybe-repo/tree/master/Projects/modulo1)
-  -  [Project Color Guess](https://github.com/imphassis/trybe-repo/tree/master/Projects/modulo1/sd-011-project-color-guess)
+- [x]   [Module 01 ](https://github.com/imphassis/trybe-repo/tree/master/Projects/modulo1)
+  -  [Project Color Guess](https://imphassis.github.io/trybe-repo/Projects/modulo1/sd-011-project-color-guess/index.html)
