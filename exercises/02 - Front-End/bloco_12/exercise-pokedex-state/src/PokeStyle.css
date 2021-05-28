@@ -1,0 +1,27 @@
+.pokemon {
+  display: flexbox;
+  flex-flow: column nowrap;
+  justify-content: center;
+  max-width: 350px;
+}
+
+.pokedex {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.btns {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.pokemon-body {
+  display: flexbox;
+  flex-flow: column nowrap;
+}
