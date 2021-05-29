@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import states from './estados';
+import Form from 'react-bootstrap/Form';
 
 export default class PersonalForm extends Component {
   render() {
@@ -7,70 +8,81 @@ export default class PersonalForm extends Component {
 
     return (
       <div>
-        <fieldset>
-          <div>
-            <label>
+        <Form>
+          <Form.Group>
+            <Form.Label>
               Nome:
-              <input
+              <Form.Control
+                type="text"
                 onChange={handleAction}
                 name="name"
-                type="text"
                 placeholder="ex: João da Silva"
               />
-            </label>
-          </div>
-          <div>
-            <label>
+            </Form.Label>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>
               E-mail:
-              <input
+              <Form.Control
                 onChange={handleAction}
                 name="email"
                 type="email"
                 placeholder="joaodasilva@email.com"
               />
-            </label>
-          </div>
-          <label>
+            </Form.Label>
+          </Form.Group>
+          <Form.Label>
             CPF:
-            <input onChange={handleAction} name="cpf" type="text" placeholder="Somente números" />
-          </label>
-          <div>
-            <label>
+            <Form.Control
+              onChange={handleAction}
+              name="cpf"
+              type="text"
+              placeholder="Somente números"
+            />
+          </Form.Label>
+          <Form.Group>
+            <Form.Label>
               Endereço:
-              <input onChange={handleAction} name="address" type="text" />
-            </label>
-          </div>
-          <label>
+              <Form.Control onChange={handleAction} name="address" type="text" />
+            </Form.Label>
+          </Form.Group>
+          <Form.Label>
             Cidade:
-            <input onChange={handleAction} name="city" type="text" />
-          </label>
-          <div>
-            <label>
+            <Form.Control onChange={handleAction} name="city" type="text" />
+          </Form.Label>
+          <Form.Group>
+            <Form.Label>
               Estado:
-              <div>
-                <select onChange={handleAction} name="state" type="text">
+              <Form.Group>
+                <Form.Control as="select" onChange={handleAction} name="state" type="text">
                   {states.map((el) => (
                     <option value={Object.keys(el)} key={Object.keys(el)}>
                       {Object.values(el)}
                     </option>
                   ))}
-                </select>
-              </div>
-            </label>
-          </div>
-          <label>Tipo de Residência:</label>
-          <div className="radio">
-            <label>
-              <input type="radio" onChange={handleAction} name="houseType" value="House" /> Casa
-            </label>
-          </div>
-          <div className="radio">
-            <label>
-              <input type="radio" onChange={handleAction} name="houseType" value="Apartment" />{' '}
+                </Form.Control>
+              </Form.Group>
+            </Form.Label>
+          </Form.Group>
+          <Form.Label>Tipo de Residência:</Form.Label>
+          <Form.Group className="radio">
+            <Form.Label>
+              <Form.Control type="radio" onChange={handleAction} name="houseType" value="House" />{' '}
+              Casa
+            </Form.Label>
+          </Form.Group>
+          <Form.Group className="radio">
+            <Form.Label>
+              <Form.Control
+                type="radio"
+                onChange={handleAction}
+                name="houseType"
+                value="Apartment"
+              />{' '}
               Apartamento
-            </label>
-          </div>
-        </fieldset>
+            </Form.Label>
+          </Form.Group>
+        </Form>
       </div>
     );
   }
