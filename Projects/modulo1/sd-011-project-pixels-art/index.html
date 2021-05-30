@@ -5,28 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
 
     <title>Paleta de Cores</title>
   </head>
   <body>
-    <header id="title-header">
-      <h1 id="title">Paleta de Cores</h1>
+    <header class='container' id="title-header">
+      <h1 class="text-center" id="title">Paleta de Cores</h1>
     </header>
-    <main>
-      <div id="color-palette">
-        <div class="selected color" id="black"></div>
-        <div class="color random"></div>
-        <div class="color random"></div>
-        <div class="color random"></div>
+    <main class='jumbotron'class="container-fluid">
+      <div class="text-center">
+        <div id="color-palette">
+          <div class="selected color" id="black"></div>
+          <div class="color random"></div>
+          <div class="color random"></div>
+          <div class="color random"></div>
+        </div>
+        <input class="form-select" type="number" min="1" id="board-size" />
+        <button class="btn btn-success" id="generate-board">VQV</button>
+
+        <div hidden="true" id="boardSizeValue">0</div>
+        <div class="mb-3">
+        <div id="pixel-board"></div>
+        <button class="btn btn-danger" id="clear-board">Limpar</button>
       </div>
-      <input type="number" min="1" id="board-size" /><button
-        id="generate-board"
-      >
-        VQV
-      </button>
-      <button id="clear-board">Limpar</button>
-      <div hidden="true" id="boardSizeValue">0</div>
-      <div id="pixel-board"></div>
     </main>
   </body>
   <script src="script.js"></script>

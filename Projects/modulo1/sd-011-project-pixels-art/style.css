@@ -27,3 +27,7 @@
 #clear-board {
   margin: 5px;
 }
+
+#pixel-board {
+  padding-top: 10px;
+}
