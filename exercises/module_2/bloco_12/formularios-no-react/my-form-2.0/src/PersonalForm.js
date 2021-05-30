@@ -5,8 +5,7 @@ import Form from 'react-bootstrap/Form';
 export default class PersonalForm extends Component {
   render() {
     const { handleAction } = this.props;
-    const { name, email, cpf, address, city, state, houseType, cvResume, jobRole, jobDescription } =
-      this.props.data;
+    const { name, email, cpf, address, city, state, houseType } = this.props.data;
     return (
       <Form.Group>
         <Form.Group>
@@ -92,6 +91,7 @@ export default class PersonalForm extends Component {
         <Form.Label>Tipo de Residência:</Form.Label>
         <Form.Group className="radio">
           <Form.Check
+            checked={houseType === 'House'}
             inline
             label="Casa"
             type="radio"
@@ -103,6 +103,7 @@ export default class PersonalForm extends Component {
         <Form.Group className="radio">
           <Form.Label>
             <Form.Check
+              checked={houseType === 'Apartment'}
               inline
               label="Apartamento"
               type="radio"
