@@ -1,7 +1,7 @@
 import React from 'react';
-import Pokemon from './Pokemon';
-import Button from './button';
-import Home from './Home';
+import Pokemon from '../components/Pokemon';
+import Button from '../components/button';
+import PokemonDetails from './PokemonDetails';
 
 class Pokedex extends React.Component {
   constructor() {
@@ -11,6 +11,7 @@ class Pokedex extends React.Component {
       pokeIndex: 0,
       pokeType: 'Fire',
       filterIndex: true,
+      bookmarked: {},
     };
 
     this.changePokemonPlus = this.changePokemonPlus.bind(this);
@@ -18,6 +19,7 @@ class Pokedex extends React.Component {
     this.filterFunction = this.filterFunction.bind(this);
     this.ChangeType = this.ChangeType.bind(this);
     this.resetIndex = this.resetIndex.bind(this);
+    this.getData = this.getData.bind(this);
   }
 
   filterFunction = () =>
@@ -61,7 +63,6 @@ class Pokedex extends React.Component {
     };
     return (
       <div>
-        <Home />
         <div className="pokedex">
           <Pokemon pokemon={this.filterFunction()[this.state.pokeIndex]} />
         </div>

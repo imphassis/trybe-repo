@@ -1,47 +1,44 @@
 import React, { Component } from 'react';
-import { Row, Container, Figure, Col, Form, Button } from 'react-bootstrap';
+import { Row, Container, Figure, Col, Form } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 
 export default class singlePokeDetail extends Component {
   render() {
-    const { name, type, averageWeight, image, id, sumary, summary, foundAt } = this.props.pokemon;
-    const { onChange } = this.props;
+    const { name, type, averageWeight, image, summary, foundAt } = this.props.pokemon;
+    const { onChange, checked } = this.props;
 
     return (
       <Container>
         <Card className="text-center">
           <Card.Header>{name} Details</Card.Header>
-          <Card.Title></Card.Title>
           <Figure>
             <Figure.Image
               width={250}
               height={300}
-              alt="171x180"
               variant="bottom"
               src={image}
               alt={`${name} sprite`}
             />
             <Card.Text>
               {`Average weight: ${averageWeight.value} ${averageWeight.measurementUnit}`}
-              <div>Type: {type}</div>
+              <br />
+              Type: {type}
             </Card.Text>
-            <Card.Text className="m-3">
-              <h2>Sumary</h2>
-              {summary}
-            </Card.Text>
+            <Card.Title>
+              <h2>Summary</h2>
+            </Card.Title>
+            <Card.Text className="m-3">{summary}</Card.Text>
           </Figure>
         </Card>
         <Figure className="figureDiv">
           <h3 className="text-center">Game Locations for {name}</h3>
-
           <Row>
             {foundAt.map((el) => {
               return (
-                <Col>
+                <Col key={el.location}>
                   <Figure.Image
                     width={250}
                     height={300}
-                    alt="171x180"
                     variant="bottom"
                     src={el.map}
                     alt={` sprite`}
@@ -53,7 +50,13 @@ export default class singlePokeDetail extends Component {
           </Row>
         </Figure>
         <Form className="text-center">
-          <Form.Check onChange={onChange} type="checkbox" inline label="Pokemon Favorito" />
+          <Form.Check
+            onChange={onChange}
+            type="checkbox"
+            inline
+            label="Pokemon Favorito"
+            checked={checked}
+          />
         </Form>
       </Container>
     );

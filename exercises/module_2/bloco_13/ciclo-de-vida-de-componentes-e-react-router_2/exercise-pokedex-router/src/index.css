@@ -37,11 +37,6 @@ body {
   margin: 5px;
 }
 
-.pokediv {
-  max-width: 250px;
-  color: blue;
-}
-
 .pokedexFrame {
   display: flex;
   flex-flow: column nowrap;
@@ -64,4 +59,8 @@ body {
 
 .figureDiv h3 {
   margin-bottom: 20px;
+}
+
+.singlePoke {
+  width: 25%;
 }
