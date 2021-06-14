@@ -10,7 +10,9 @@ export default class singlePokeDetail extends Component {
     return (
       <Container>
         <Card className="text-center">
-          <Card.Header>{name} Details</Card.Header>
+          <Card.Header>
+            {name} Details | Favorite: {`${checked}`}
+          </Card.Header>
           <Figure>
             <Figure.Image
               width={250}
@@ -55,7 +57,8 @@ export default class singlePokeDetail extends Component {
             type="checkbox"
             inline
             label="Pokemon Favorito"
-            checked={checked}
+            // checked={checked}
+            defaultChecked={checked}
           />
         </Form>
       </Container>

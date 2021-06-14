@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Image, Jumbotron } from 'react-bootstrap';
-import Home from './Home';
 
 export default class About extends Component {
   render() {
     return (
       <div>
-        <Home />
         <Jumbotron className="m-3 text-center" fluid>
           <h1>About Pokedex</h1>
           <h5>

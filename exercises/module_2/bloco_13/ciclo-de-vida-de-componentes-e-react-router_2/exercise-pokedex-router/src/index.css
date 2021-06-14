@@ -64,3 +64,13 @@ body {
 .singlePoke {
   width: 25%;
 }
+
+.favoritePokes {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 20px;
+}
+
+.favoritePokes .singlePoke {
+  margin: 20px;
+}
