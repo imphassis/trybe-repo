@@ -74,3 +74,9 @@ body {
 .favoritePokes .singlePoke {
   margin: 20px;
 }
+
+.card-title {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}

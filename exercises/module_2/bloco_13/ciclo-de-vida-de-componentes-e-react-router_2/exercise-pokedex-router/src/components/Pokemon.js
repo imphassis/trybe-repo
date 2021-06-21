@@ -13,13 +13,19 @@ export default class Pokemon extends React.Component {
     const { name, type, averageWeight, image, id } = this.props.pokemon;
     const { bookmarked } = this.props;
     const isBookmarked = bookmarked ? true : false;
+    const star = () => {
+      if (isBookmarked) {
+        return <i className="fa fa-star" aria-hidden="true"></i>;
+      }
+      return <i class="fa fa-star-o" aria-hidden="true"></i>;
+    };
 
     return (
       <Card bg="light" border="dark" className="text-center card singlePoke">
         <Card.Header>
           <Card.Title>
-            {name} |Favorite:
-            {`${isBookmarked}`}
+            <div>{name}</div>
+            <div>{star()}</div>
           </Card.Title>
         </Card.Header>
         <Card.Img variant="bottom" src={image} alt={`${name} sprite`} />

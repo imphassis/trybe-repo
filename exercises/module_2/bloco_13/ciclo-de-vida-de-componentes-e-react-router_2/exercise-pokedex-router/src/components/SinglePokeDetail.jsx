@@ -6,12 +6,22 @@ export default class singlePokeDetail extends Component {
   render() {
     const { name, type, averageWeight, image, summary, foundAt } = this.props.pokemon;
     const { onChange, checked } = this.props;
+    const isBookmarked = checked ? true : false;
+    const star = () => {
+      if (isBookmarked) {
+        return <i className="fa fa-star" aria-hidden="true"></i>;
+      }
+      return <i class="fa fa-star-o" aria-hidden="true"></i>;
+    };
 
     return (
       <Container>
         <Card className="text-center">
           <Card.Header>
-            {name} Details | Favorite: {`${checked}`}
+            <Card.Title>
+              <div>{name}</div>
+              <div>{star()}</div>
+            </Card.Title>
           </Card.Header>
           <Figure>
             <Figure.Image
@@ -26,9 +36,9 @@ export default class singlePokeDetail extends Component {
               <br />
               Type: {type}
             </Card.Text>
-            <Card.Title>
-              <h2>Summary</h2>
-            </Card.Title>
+
+            <Card.Text as="h2">Summary</Card.Text>
+
             <Card.Text className="m-3">{summary}</Card.Text>
           </Figure>
         </Card>
