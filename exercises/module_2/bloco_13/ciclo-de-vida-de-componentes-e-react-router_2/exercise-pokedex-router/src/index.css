@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.pokemon,
+.pokemonDetails {
+  flex-flow: column nowrap;
+  max-width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1 1 auto;
+  min-width: 25%;
+  margin: 10px 10px;
+  border: 1px gray solid;
+  border-radius: 10px;
+}
+
+.pokedex {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin: 10px 10px;
+}
+
+.btns {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.pokedexFrame {
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+}
+
+.nextButton {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.figureDiv {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.figureDiv h3 {
+  margin-bottom: 20px;
+}
+
+.singlePoke {
+  width: 25%;
+}
+
+.favoritePokes {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 20px;
+}
+
+.favoritePokes .singlePoke {
+  margin: 20px;
+}
