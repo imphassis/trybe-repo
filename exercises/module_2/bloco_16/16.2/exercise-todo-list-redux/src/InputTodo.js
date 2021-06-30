@@ -16,8 +16,10 @@ class InputTodo extends Component {
   }
 
   addItem(value, callback) {
-    this.setState({ textTodo: '' });
-    callback(value);
+    if (value) {
+      this.setState({ textTodo: '' });
+      callback(value);
+    }
   }
 
   render() {

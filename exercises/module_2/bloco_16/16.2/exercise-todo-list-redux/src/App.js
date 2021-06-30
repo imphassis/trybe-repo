@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import InputTodo from './InputTodo';
 import Item from './Item';
+import { connect } from 'react-redux';
+import { addTodo, removeTodo } from './actions';
 
 class App extends Component {
   constructor(props) {
@@ -17,7 +19,7 @@ class App extends Component {
   }
 
   addTodo(todo) {
-    this.setState((state) => ({ listTodo: [...state.listTodo, todo] }));
+    this.props.addTodo(todo);
   }
 
   selectTask(value) {
@@ -25,20 +27,21 @@ class App extends Component {
   }
 
   removeTodo = () => {
-    const { listTodo, selectedTask } = this.state;
-    const filtered = listTodo.filter((el) => el !== selectedTask);
-    this.setState({ listTodo: [...filtered] });
-    this.setState({ selectedTask: '' });
+    const { selectedTask } = this.state;
+    const { removeTodo } = this.props;
+    removeTodo(selectedTask);
   };
 
   render() {
-    const { listTodo, selectedTask } = this.state;
+    const { list } = this.props;
+
+    const { selectedTask } = this.state;
     return (
       <div className="App">
-        <InputTodo addTodo={(todo) => this.addTodo(todo)} />
-        {listTodo && (
+        <InputTodo addTodo={(e) => this.addTodo(e)} />
+        {list && (
           <ul>
-            {listTodo.map((todo, index) => (
+            {list.map((todo, index) => (
               <li key={index + 1} onClick={() => this.selectTask(todo)}>
                 <Item content={todo} />
               </li>
@@ -57,4 +60,14 @@ class App extends Component {
     );
   }
 }
-export default App;
+
+const mapStateToProps = (state) => ({
+  list: state.listReducer.list,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  addTodo: (payload) => dispatch(addTodo(payload)),
+  removeTodo: (payload) => dispatch(removeTodo(payload)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
