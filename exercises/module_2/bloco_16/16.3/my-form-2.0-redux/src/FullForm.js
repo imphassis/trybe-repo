@@ -4,8 +4,10 @@ import ProfessionalForm from './ProfessionalForm';
 import Button from 'react-bootstrap/Button';
 import FormDataDisplay from './FormData';
 import Form from 'react-bootstrap/Form';
+import { connect } from 'react-redux';
+import { sendForm } from './actions';
 
-export default class FullForm extends Component {
+class FullForm extends Component {
   constructor(props) {
     super(props);
 
@@ -46,12 +48,12 @@ export default class FullForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    this.setState({ submitted: true });
+    this.props.sendForm({ submitted: true });
   };
 
   handleAction = ({ target }) => {
     const { name, value } = target;
-    this.setState({ [name]: value });
+    this.props.sendForm({ [name]: value });
   };
 
   sendForm = () => {
@@ -62,15 +64,25 @@ export default class FullForm extends Component {
     return (
       <>
         <Form onSubmit={this.handleSubmit}>
-          <PersonalForm handleAction={this.handleAction} data={this.state} />
+          <PersonalForm handleAction={this.handleAction} data={this.props.form} />
           <ProfessionalForm handleAction={this.handleAction} />
           <Button type="submit">Submit</Button>{' '}
           <Button variant="danger" onClick={this.handleClean}>
             Clean
           </Button>
         </Form>
-        {this.state.submitted && <FormDataDisplay data={this.state} />}
+        {this.props.form.submitted && <FormDataDisplay data={this.props.form} />}
       </>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  form: state.formReducer.form,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  sendForm: (payload) => dispatch(sendForm(payload)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FullForm);
