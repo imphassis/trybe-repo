@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {
-  Clients, Home, Login, NotFound,
+  Clients, Home, Login, NotFound, Register,
 } from './pages';
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
         <Route exact path="/" render={(props) => <Home {...props} />} />
         <Route exact path="/login" render={(props) => <Login {...props} />} />
         <Route exact path="/clients" render={(props) => <Clients {...props} />} />
+        <Route exact path="/register" render={(props) => <Register {...props} />} />
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>

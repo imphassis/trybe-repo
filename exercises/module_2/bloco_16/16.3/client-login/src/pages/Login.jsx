@@ -2,30 +2,27 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
+import { Redirect } from 'react-router';
 import { sendInfo } from '../App/actions';
 
-function Login(props) {
-  // const { sendInformation } = props;
+function Login() {
   const userInfo = useSelector((state) => state.loginReducer);
-
+  const [input, setInput] = useState({ email: '', password: '', auth: false });
+  const dispatch = useDispatch();
   useEffect(() => {
     if (userInfo.auth) {
-      props.history.push('/clients');
+      <Redirect to="/clients" />;
+      // props.history.push('/clients');
     }
   });
-
-  const [input, setInput] = useState({ email: '', password: '', auth: false });
 
   const handleInput = ({ target }) => {
     const { type } = target;
     setInput({ ...input, [type]: target.value });
   };
 
-  const dispatch = useDispatch();
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    // sendInformation(input);
     dispatch(sendInfo(input));
   };
 
