@@ -1,29 +1,33 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router';
+// import { Redirect } from 'react-router';
 import { sendInfo } from '../App/actions';
 
-function Login() {
+function Login(props) {
   const userInfo = useSelector((state) => state.loginReducer);
   const [input, setInput] = useState({ email: '', password: '', auth: false });
   const dispatch = useDispatch();
-  useEffect(() => {
-    if (userInfo.auth) {
-      <Redirect to="/clients" />;
-      // props.history.push('/clients');
-    }
-  });
+
+  // useEffect(() => {
+  //   if (userInfo.auth) {
+  //     <Redirect to="/clients" />;
+  //     // props.history.push('/clients');
+  //   }
+  // });
 
   const handleInput = ({ target }) => {
     const { type } = target;
     setInput({ ...input, [type]: target.value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(sendInfo(input));
+    if (await userInfo.auth) {
+      await props.history.push('/clients');
+    }
   };
 
   return (
