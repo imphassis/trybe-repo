@@ -97,3 +97,55 @@ SELECT
 -- fotografia para iniciantes.Qual é o valor aproximado para cima dessa média ?
 SELECT
   CEIL(85.234);
+
+-- Monte uma query que exiba a diferença de dias entre '2030-01-20' e hoje.
+SELECT
+  DATEDIFF ('2030-01-20', NOW());
+
+-- Monte uma query exiba a diferença de horas entre '10:25:45' e '11:00:00' .
+SELECT
+  TIMEDIFF('11:00:00', '10:25:45');
+
+-- Para praticar,
+-- vamos encontrar algumas informações sobre os filmes cadastrados em nossa base de dados.
+-- Monte um query que exiba: A média de duração dos filmes e dê o nome da coluna de 'Média de Duração';
+-- A duração mínima dos filmes como 'Duração Mínima';
+-- A duração máxima dos filmes como 'Duração Máxima';
+-- A soma de todas AS durações como 'Tempo de Exibição Total';
+-- E finalmente,
+-- a quantidade total de filmes cadastrados na tabela sakila.film como 'Filmes Registrados'.
+SELECT
+  AVG(length) AS 'Média de Duração',
+  MIN(length) AS 'Duração Mínima',
+  MAX(length) AS 'Duração Máxima',
+  SUM(length) AS 'Tempo de Exibição Total',
+  COUNT(*) AS 'Filmes Registrados'
+FROM
+  sakila.film;
+
+-- Usando a query a seguir, exiba apenas as durações médias que estão entre 115.0 a 121.50.
+-- Além disso, dê um alias (apelido) à coluna gerada por AVG(length) , de forma que deixe a
+-- query mais legível. Finalize ordenando os resultados de forma decrescente.
+SELECT
+  rating,
+  AVG(length) AS average_length
+FROM
+  sakila.film
+GROUP BY
+  rating
+HAVING
+  average_length BETWEEN 115 AND 121.5;
+
+-- Usando a query a seguir,
+-- exiba apenas os valores de custo de substituição que estão acima de $ 3950.50.
+-- Dê um alias que faça sentido para SUM(replacement_cost),
+-- de forma que deixe a query mais legível.Finalize ordenando os resultados de forma crescente.
+SELECT
+  rating,
+  SUM(replacement_cost) AS replacement_sum
+FROM
+  sakila.film
+GROUP BY
+  rating
+HAVING
+  replacement_sum > 3950.50;

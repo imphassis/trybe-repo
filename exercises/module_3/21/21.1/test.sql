@@ -1,20 +1,34 @@
 SELECT
-  10 MOD 3;
+  first_name,
+  COUNT(*)
+FROM
+  sakila.actor
+GROUP BY
+  first_name
+HAVING
+  COUNT(*) > 2;
 
--- 1
+-- Ou, melhor ainda, usando o AS para dar nomes às colunas de agregação,
+-- melhorando a leitura do resultado
 SELECT
-  10 MOD 2;
+  first_name,
+  COUNT(*) AS nomes_cadastrados
+FROM
+  sakila.actor
+GROUP BY
+  first_name
+HAVING
+  nomes_cadastrados > 2;
 
--- 0
+-- Observação: o alias não funciona com strings para o HAVING,
+-- então use o underline ("_") para separar palavras
+-- Ou seja, o exemplo abaixo não vai funcionar
 SELECT
-  14 MOD 3;
-
--- 2
-SELECT
-  13 MOD 2;
-
--- 1
-SELECT
-  10.5 MOD 2;
-
--- 0.5, ou seja, 2 + 2 + 2 + 2 + 2 = 10, restando 0.5
+  first_name,
+  COUNT(*) AS 'nomes cadastrados'
+FROM
+  sakila.actor
+GROUP BY
+  first_name
+HAVING
+  'nomes cadastrados' > 2;
